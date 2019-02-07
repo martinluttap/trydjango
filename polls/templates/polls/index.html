@@ -14,11 +14,11 @@
 <div class="container">
     {% if latest_question_list %}
             {% for question in latest_question_list %}
-            <div class="modal fade" id="answer-modal" tabindex="-1" role="dialog" aria-labelledby="answer-modal-label" aria-hidden="true">
+            <div class="modal fade" id="answer-{{ question.id }}" tabindex="-1" role="dialog" aria-labelledby="answer-{{ question.id }}-label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="answer-modal-label">Give Your Answer</h5>
+                    <h5 class="modal-title" id="answer-{{ question.id }}-label">Give Your Answer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -62,7 +62,7 @@
                                     {% if not question.answer %}
                                             <td width="99.9%%">
                                                 <b> None </b>
-                                                <a type="button" class="btn btn-success" data-toggle="modal" data-target="#answer-modal" style="float: right;">Add Answer</a>
+                                                <a type="button" class="btn btn-success" data-toggle="modal" data-target="#answer-{{ question.id }}" style="float: right;">Add Answer</a>
                                             </td>
                                         </tr>
                                     {% else %}
